@@ -59,16 +59,6 @@ namespace MrSale
                 {
                     // actually login
                     SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\ezesunday\Documents\mrsalesnew.mdf;Integrated Security=True;Connect Timeout=30");
-
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
-                try
-                {
-
                     // SqlDataReader read = new SqlDataReader();
                     SqlCommand command = new SqlCommand();
                     SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT COUNT(*) FROM users WHERE username='" + textBox1.Text.ToLower() + "' AND password='" + textBox2.Text.ToLower() + "'", con);

@@ -1,5 +1,5 @@
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\ColorManagement.cs\bin\Debug\ColorManagement.cs.dll
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\ColorManagement.cs\bin\Debug\ColorManagement.cs.pdb
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\ColorManagement.cs\obj\Debug\ColorManagement.csprojResolveAssemblyReference.cache
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\ColorManagement.cs\obj\Debug\ColorManagement.cs.dll
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\ColorManagement.cs\obj\Debug\ColorManagement.cs.pdb
-C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\ColorManagement.cs\obj\Debug\ColorManagement.csprojResolveAssemblyReference.cache
