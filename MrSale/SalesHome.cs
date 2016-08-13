@@ -57,8 +57,8 @@ namespace MrSale
             //tab3
             tabPage3.ToolTipText = "View Sales Reports";
 
-            label1.BackColor= Color.Transparent;
-            label2.BackColor = Color.Transparent;
+            lblTotalSalesHeadingtext.BackColor= Color.Transparent;
+            lblSalesTotal.BackColor = Color.Transparent;
             label3.BackColor = Color.Transparent;
 
             // datagrid
@@ -124,20 +124,30 @@ namespace MrSale
 
             AutoCompleteStringCollection col = new AutoCompleteStringCollection();
 
-            SqlCommand command = new SqlCommand("select * from customers",sql);
-            
-            sql.Open();
-            readdata = command.ExecuteReader();
-
-            while (readdata.Read())
+            try
             {
-                //string CustomerName = readdata.GetString(0);
-               // col.Add(CustomerName);
-            }
+                using (SqlCommand command = new SqlCommand("select * from customers", sql))
+                {
 
-            sql.Close();
-            
+                    sql.Open();
+                    readdata = command.ExecuteReader();
+
+                    while (readdata.Read())
+                    {
+                        //string CustomerName = readdata.GetString(0);
+                        // col.Add(CustomerName);
+                    }
+
+                    sql.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+        
 
         private void tabControl1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -148,15 +158,6 @@ namespace MrSale
                
                
             }
-        }
-
-      
-        
-
-        private void tabPage1_Enter(object sender, EventArgs e)
-        {
-         
-           
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -187,17 +188,27 @@ namespace MrSale
         private void SalesHome_Load(object sender, EventArgs e)
         {
             sql.Open();
+            try
+            {
+                using (SqlCommand command = new SqlCommand("select cs_Name,cs_PhoneNumber,cs_ID FROM customers", sql))
+                {
+                    SqlDataAdapter sda = new SqlDataAdapter();
+                    datatable = new DataTable();
+                    sda.SelectCommand = command;
+                    sda.Fill(datatable);
 
-            SqlCommand command = new SqlCommand("select cs_Name,cs_PhoneNumber,cs_ID FROM customers", sql);
-            SqlDataAdapter sda = new SqlDataAdapter();
-            datatable = new DataTable();
-            sda.SelectCommand = command;
-            sda.Fill(datatable);
-
-            datagridCustomerDetails.DataSource = datatable;
-
-
-            sql.Close();
+                    datagridCustomerDetails.DataSource = datatable;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sql.Close();
+            }
+            
            
  
         }
@@ -260,17 +271,11 @@ namespace MrSale
                 label24.Text = "No Intert Connectivity";
             }
         }
-        private void label24_MouseClick(object sender, MouseEventArgs e)
-        {
-             
-        }
         #endregion
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime dateTime = DateTime.Now;
-
-
             this.lbl_time.Text = dateTime.ToString();
         }
         public void Autocomplete()
@@ -282,23 +287,29 @@ namespace MrSale
             // connection from database
 
             sql.Open();
-
-            SqlCommand command = new SqlCommand("select cs_Name,cs_PhoneNumber,cs_ID FROM customers", sql);
-            //SqlDataAdapter sda = new SqlDataAdapter();
-            //datatable = new DataTable();
-            //sda.SelectCommand = command;
-            //sda.Fill(datatable);
-
-            //datagridCustomerDetails.DataSource = datatable;
-            SqlDataReader readdata;
-            readdata = command.ExecuteReader();
-            while (readdata.Read())
+            try
             {
-                string sugest = readdata.GetString(0).ToString();
-                col.Add(sugest);
+                using (SqlCommand command = new SqlCommand("select cs_Name,cs_PhoneNumber,cs_ID FROM customers", sql))
+                {
+                    SqlDataReader readdata;
+                    readdata = command.ExecuteReader();
+                    while (readdata.Read())
+                    {
+                        string sugest = readdata.GetString(0).ToString();
+                        col.Add(sugest);
+                    }
+                    c_dsearch.AutoCompleteCustomSource = col;
+                }
             }
-            c_dsearch.AutoCompleteCustomSource = col;
-            sql.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sql.Close();
+            }
+            
 
         }
 
@@ -329,14 +340,9 @@ namespace MrSale
             DataView div = new DataView();
             div.RowFilter = string.Format("cs_Name LIKE '%{0}%'",txtCustomerName);
             sql.Open();
+            //still working on this line
             SqlCommand command = new SqlCommand("select * from custmers where cs_Name ='"+txtCustomerName.Text+"'");
             SqlDataReader readata2;
-            //readata2 = command.ExecuteReader();
-            
-            //while (readata2.Read())
-            //{
-            //   //txtCustomerPhoneNumber.Text = ; 
-            //}
             sql.Close();
             
         }
@@ -349,19 +355,26 @@ namespace MrSale
             AutoCompleteStringCollection complete = new AutoCompleteStringCollection();
 
             sql.Open();
-            SqlCommand command = new SqlCommand("Select cs_Name From customers",sql);
-            
-            
-            readdata = command.ExecuteReader();
-
-            while (readdata.Read())
+            try
             {
-                string textboxsearch = readdata.GetString(0).ToString();
-                complete.Add(textboxsearch);
-            }
-            txtCustomerName.AutoCompleteCustomSource = complete;
+                using (SqlCommand command = new SqlCommand("Select cs_Name From customers", sql))
+                {
+                    readdata = command.ExecuteReader();
 
+                    while (readdata.Read())
+                    {
+                        string textboxsearch = readdata.GetString(0).ToString();
+                        complete.Add(textboxsearch);
+                    }
+                    txtCustomerName.AutoCompleteCustomSource = complete;
+                }
+
+            }catch (Exception ex){
+                MessageBox.Show(ex.Message);
+
+            }finally{
             sql.Close();
+            }
 
         }
 

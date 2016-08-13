@@ -72,11 +72,11 @@
             this.datagridShoppingCart = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblChange = new System.Windows.Forms.Label();
+            this.lblSalesTotal = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblChangeHeadingText = new System.Windows.Forms.Label();
+            this.lblTotalSalesHeadingtext = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbl_time = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -521,11 +521,11 @@
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
             this.tabPage1.Controls.Add(this.datagridShoppingCart);
             this.tabPage1.Controls.Add(this.groupBox4);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.lblChange);
+            this.tabPage1.Controls.Add(this.lblSalesTotal);
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.lblChangeHeadingText);
+            this.tabPage1.Controls.Add(this.lblTotalSalesHeadingtext);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -539,7 +539,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sales";
             this.tabPage1.ToolTipText = "Manage Sales";
-            this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
             // 
             // datagridShoppingCart
             // 
@@ -572,29 +571,29 @@
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
             // 
-            // label9
+            // lblChange
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label9.Location = new System.Drawing.Point(172, 425);
-            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 24);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "$200";
+            this.lblChange.AutoSize = true;
+            this.lblChange.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.lblChange.Location = new System.Drawing.Point(172, 425);
+            this.lblChange.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblChange.Name = "lblChange";
+            this.lblChange.Size = new System.Drawing.Size(56, 24);
+            this.lblChange.TabIndex = 0;
+            this.lblChange.Text = "$200";
             // 
-            // label2
+            // lblSalesTotal
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label2.Location = new System.Drawing.Point(145, 327);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "$100,000";
+            this.lblSalesTotal.AutoSize = true;
+            this.lblSalesTotal.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalesTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.lblSalesTotal.Location = new System.Drawing.Point(145, 327);
+            this.lblSalesTotal.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblSalesTotal.Name = "lblSalesTotal";
+            this.lblSalesTotal.Size = new System.Drawing.Size(106, 25);
+            this.lblSalesTotal.TabIndex = 0;
+            this.lblSalesTotal.Text = "$100,000";
             // 
             // label8
             // 
@@ -607,27 +606,27 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "CHANGE";
             // 
-            // label7
+            // lblChangeHeadingText
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(146, 404);
-            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 21);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "CHANGE";
+            this.lblChangeHeadingText.AutoSize = true;
+            this.lblChangeHeadingText.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeHeadingText.Location = new System.Drawing.Point(146, 404);
+            this.lblChangeHeadingText.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblChangeHeadingText.Name = "lblChangeHeadingText";
+            this.lblChangeHeadingText.Size = new System.Drawing.Size(93, 21);
+            this.lblChangeHeadingText.TabIndex = 0;
+            this.lblChangeHeadingText.Text = "CHANGE";
             // 
-            // label1
+            // lblTotalSalesHeadingtext
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(68, 283);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(263, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "TOTAL SALE FOR TODAY:";
+            this.lblTotalSalesHeadingtext.AutoSize = true;
+            this.lblTotalSalesHeadingtext.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalSalesHeadingtext.Location = new System.Drawing.Point(68, 283);
+            this.lblTotalSalesHeadingtext.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblTotalSalesHeadingtext.Name = "lblTotalSalesHeadingtext";
+            this.lblTotalSalesHeadingtext.Size = new System.Drawing.Size(263, 21);
+            this.lblTotalSalesHeadingtext.TabIndex = 0;
+            this.lblTotalSalesHeadingtext.Text = "TOTAL SALE FOR TODAY:";
             // 
             // groupBox3
             // 
@@ -1027,7 +1026,6 @@
             this.label24.Size = new System.Drawing.Size(0, 15);
             this.label24.TabIndex = 5;
             this.label24.Click += new System.EventHandler(this.label24_Click);
-            this.label24.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label24_MouseClick);
             // 
             // label4
             // 
@@ -1212,8 +1210,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSalesTotal;
+        private System.Windows.Forms.Label lblTotalSalesHeadingtext;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
@@ -1225,9 +1223,9 @@
         private System.Windows.Forms.TextBox txtCustomerPhoneNumber;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblChange;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblChangeHeadingText;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;

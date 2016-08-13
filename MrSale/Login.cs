@@ -55,15 +55,25 @@ namespace MrSale
 
             if (reg.IsMatch(tb.Text))
             {
+                try
+                {
                     // actually login
-               
                     SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\ezesunday\Documents\mrsalesnew.mdf;Integrated Security=True;Connect Timeout=30");
+
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                try
+                {
+
                     // SqlDataReader read = new SqlDataReader();
                     SqlCommand command = new SqlCommand();
                     SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT COUNT(*) FROM users WHERE username='" + textBox1.Text.ToLower() + "' AND password='" + textBox2.Text.ToLower() + "'", con);
                     DataTable dtable = new DataTable();
                     adapter.Fill(dtable);
-
                     if (dtable.Rows[0][0].ToString() == "1")
                     {
                         SalesHome sales = new SalesHome();
@@ -78,8 +88,14 @@ namespace MrSale
                         pbox2.Height = 44;
                         pbox2.Width = 34;
                         lbl.ForeColor = Color.Red;
-                        lbl.Text = "Invalid"; 
+                        lbl.Text = "Invalid";
+                    
                     }
+                }catch (SqlException ex){
+
+                    MessageBox.Show(ex.Message);
+                }
+      
             }
             else
             {
