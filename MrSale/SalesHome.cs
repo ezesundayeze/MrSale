@@ -339,12 +339,26 @@ namespace MrSale
         {
             DataView div = new DataView();
             div.RowFilter = string.Format("cs_Name LIKE '%{0}%'",txtCustomerName);
-            sql.Open();
-            //still working on this line
-            SqlCommand command = new SqlCommand("select * from custmers where cs_Name ='"+txtCustomerName.Text+"'");
-            SqlDataReader readata2;
-            sql.Close();
             
+            //still working on this line
+             sql.Open();
+            string query = "select cs_PhoneNumber from customers where cs_Name='"+txtCustomerName.Text+"'";
+
+            using (SqlCommand command = new SqlCommand(query, sql))
+            {
+                readdata = command.ExecuteReader();
+                if (readdata.HasRows)
+                {
+                    while (readdata.Read())
+                    {
+                        txtCustomerPhoneNumber.Text = readdata["cs_PhoneNumber"].ToString();
+
+                    }
+
+                }
+            }
+            sql.Close();
+	     
         }
         public void SearchCustomer()
         {
