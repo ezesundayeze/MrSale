@@ -62,7 +62,6 @@
             this.datagridCustomerDetails = new System.Windows.Forms.DataGridView();
             this.button9 = new System.Windows.Forms.Button();
             this.Gb_searchCustomer = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.c_dsearch = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
@@ -174,6 +173,7 @@
             // 
             // panel_for_bulksms_control
             // 
+            this.panel_for_bulksms_control.BackColor = System.Drawing.Color.DarkCyan;
             this.panel_for_bulksms_control.Controls.Add(this.button1);
             this.panel_for_bulksms_control.Controls.Add(this.btn_import);
             this.panel_for_bulksms_control.Controls.Add(this.panel_for_label_bulk_sms);
@@ -294,7 +294,7 @@
             // 
             // panel_customerdetails
             // 
-            this.panel_customerdetails.BackColor = System.Drawing.Color.Transparent;
+            this.panel_customerdetails.BackColor = System.Drawing.Color.DarkCyan;
             this.panel_customerdetails.Controls.Add(this.gbCTransaction);
             this.panel_customerdetails.Controls.Add(this.gbCDeails);
             this.panel_customerdetails.Controls.Add(this.button9);
@@ -304,7 +304,7 @@
             this.panel_customerdetails.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_customerdetails.Location = new System.Drawing.Point(5, 4);
             this.panel_customerdetails.Name = "panel_customerdetails";
-            this.panel_customerdetails.Size = new System.Drawing.Size(626, 703);
+            this.panel_customerdetails.Size = new System.Drawing.Size(661, 703);
             this.panel_customerdetails.TabIndex = 0;
             // 
             // gbCTransaction
@@ -438,7 +438,6 @@
             // 
             // Gb_searchCustomer
             // 
-            this.Gb_searchCustomer.Controls.Add(this.button3);
             this.Gb_searchCustomer.Controls.Add(this.c_dsearch);
             this.Gb_searchCustomer.Controls.Add(this.label22);
             this.Gb_searchCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -447,16 +446,6 @@
             this.Gb_searchCustomer.Size = new System.Drawing.Size(599, 128);
             this.Gb_searchCustomer.TabIndex = 0;
             this.Gb_searchCustomer.TabStop = false;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(479, 47);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 52);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // c_dsearch
             // 
@@ -1296,6 +1285,5 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label lbl_time;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button button3;
     }
 }

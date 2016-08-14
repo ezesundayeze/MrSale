@@ -49,7 +49,7 @@ namespace MrSale
 
             //tab2
             tabPage2.ToolTipText = "Manage Customers";
-            tabPage2.BackColor = Color.FromArgb(10, 5, 20);
+           // tabPage2.BackColor = Color.FromArgb(10, 5, 20);
             tabPage2.ForeColor = Color.White;
             gbCDeails.ForeColor = Color.White;
             gbCTransaction.ForeColor = Color.White;
@@ -71,21 +71,21 @@ namespace MrSale
             c_dsearch.ForeColor = Color.DeepPink;
             c_dsearch.BackColor = Color.White;
             c_dsearch.Height = 30;
-            Gb_searchCustomer.BackColor = cblue;
+            //Gb_searchCustomer.BackColor = cblue;
 
             //panels for customer details -- in customer management section
-            panel_customerdetails.BackColor = Color.FromArgb(3, 109, 191);
-            panel_for_label_bulk_sms.BackColor = Color.FromArgb(3, 109, 191);
-            panel_for_bulksms_control.BackColor = Color.FromArgb(3, 109, 191);
+            //panel_customerdetails.BackColor = Color.FromArgb(3, 109, 191);
+            //panel_for_label_bulk_sms.BackColor = Color.FromArgb(3, 109, 191);
+            //panel_for_bulksms_control.BackColor = Color.FromArgb(3, 109, 191);
 
             //bulksms group controls
-            Gbox_for_customer_message.BackColor = Color.FromArgb(10, 5, 20);
-            Gboxfor_customers_phone_number.BackColor = Color.FromArgb(10, 5, 20);
+            //Gbox_for_customer_message.BackColor = Color.FromArgb(10, 5, 20);
+            //Gboxfor_customers_phone_number.BackColor = Color.FromArgb(10, 5, 20);
 
 
             //bulksms portal
 
-            panel_for_label_bulk_sms.BackColor = cblue;
+           // panel_for_label_bulk_sms.BackColor = cblue;
 
 
             //bulksms buttons
@@ -153,8 +153,17 @@ namespace MrSale
         {
             if (e.KeyCode==Keys.Escape)
             {
-                
+                DialogResult dr = MessageBox.Show("Are You Sure You Want To Exit?","Exit",MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
                     Application.Exit();
+                }
+                else
+                {
+
+                    
+                }
+                   
                
                
             }
@@ -338,7 +347,7 @@ namespace MrSale
             
             //still working on this line
              sql.Open();
-            string query = "select cs_PhoneNumber from customers where cs_Name='"+txtCustomerName.Text+"'";
+            string query = "select cs_PhoneNumber,cs_Id from customers where cs_Name='"+txtCustomerName.Text+"'";
 
             using (SqlCommand command = new SqlCommand(query, sql))
             {
