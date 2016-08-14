@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using FixerSharp;
 
 namespace MrSale
 {
@@ -27,12 +28,8 @@ namespace MrSale
 
         }
 
-        private void SplashScreen_Load(object sender, EventArgs e)
-        {
-           
-           
-            
-        }
+        
+       
         public void giv(object sender, PaintEventArgs p)
         {
 

@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 611);
+            this.ClientSize = new System.Drawing.Size(1184, 363);
             this.Controls.Add(this.pbox2);
             this.Controls.Add(this.pbox1);
             this.Controls.Add(this.lblerror2);

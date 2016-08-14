@@ -60,7 +60,6 @@
             this.Name = "SplashScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mr Sale - Welcome";
-            this.Load += new System.EventHandler(this.SplashScreen_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SplashScreen_KeyDown);
             this.ResumeLayout(false);
 

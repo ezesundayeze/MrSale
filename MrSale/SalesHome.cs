@@ -253,13 +253,9 @@ namespace MrSale
 
                 try
                 {
-
-                    ExchangeRate exrate = Fixer.Rate(Symbols.USD, Symbols.EUR);
-                    double OneUsdtoEuro = exrate.Convert(1);
-                    label24.Text = Math.Ceiling(OneUsdtoEuro).ToString();
-
-
-
+                    //ExchangeRate exrate = Fixer.Rate(Symbols.USD, Symbols.EUR);
+                    //double OneUsdtoEuro = exrate.Convert(1);
+                    //label24.Text = Math.Ceiling(OneUsdtoEuro).ToString();
                 }
                 catch (Exception ex)
                 {
