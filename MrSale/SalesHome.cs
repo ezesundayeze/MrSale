@@ -37,10 +37,10 @@ namespace MrSale
             Color cblue = Color.FromArgb(149, 191,35);
             //Color cblue =  Color.FromArgb(66,139,202);
             this.BackColor = cblue;
-            txtCustomerPhoneNumber.Text = "08166307166";
+            //txtCustomerPhoneNumber.Text = "08166307166";
 
             // setting focus to the First tab
-            tabControl1.SelectedIndex = 1;
+            tabControl1.SelectedIndex = 0;
 
             // setting tap page properties
             //tab1
@@ -222,7 +222,7 @@ namespace MrSale
         #region Closing Form Event Handler
         private void SalesHome_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Console.Beep();
+            //Console.Beep();
             
             DialogResult dr = MessageBox.Show(@"Do you really want to  Exit?", "Exit", MessageBoxButtons.YesNo);
             if (dr==DialogResult.Yes)
@@ -348,6 +348,12 @@ namespace MrSale
                     while (readdata.Read())
                     {
                         txtCustomerPhoneNumber.Text = readdata["cs_PhoneNumber"].ToString();
+                        try
+                        {
+                            txtCustomerID.Text = readdata["cs_Id"].ToString();
+                        }catch (IndexOutOfRangeException ex){
+                            MessageBox.Show(ex.Message);
+                        }
 
                     }
 
