@@ -2,12 +2,10 @@ C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\MrSale.exe.config
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\MrSale.exe
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\MrSale.pdb
-C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\ColorManagement.cs.dll
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\Customers.dll
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\FixerSharp.dll
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\Newtonsoft.Json.dll
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\pbar.cs.dll
-C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\ColorManagement.cs.pdb
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\Customers.pdb
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\pbar.cs.pdb
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\Newtonsoft.Json.xml

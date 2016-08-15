@@ -97,7 +97,7 @@ namespace MrSale
             //button cutomisation
 
             btn_add.Image = Properties.Resources.btn_add;
-            textBox1.BorderStyle = BorderStyle.None;
+            txtQuantity.BorderStyle = BorderStyle.None;
 
             // rectangleshape
 
@@ -174,13 +174,27 @@ namespace MrSale
         {
             try
             {
-                if (textBox2.Text != "")
+                if (txtPrice.Text != "")
                 {
-                    double result = Convert.ToDouble(textBox1.Text) * 12;
-                    textBox2.Text = result.ToString();
+                    
+                        sql.Open();
+                        string query = "select p_price from products where p_name='" + txtSalesProduct.Text + "'";
+                        using (SqlCommand command = new SqlCommand(query, sql))
+                        {
+                            readdata = command.ExecuteReader();
+                            while (readdata.Read())
+                            {
+                                double result = Convert.ToDouble(txtQuantity.Text) * Convert.ToDouble(readdata["p_price"]);
+                                txtPrice.Text = result.ToString();
+                            }
+
+                        }
+                        sql.Close();
+        
                 }else{
-                    textBox2.Clear();
+                    txtPrice.Clear();
                 }
+                
 
 
             }
@@ -227,37 +241,68 @@ namespace MrSale
         {
             DataView dv = new DataView();
             sql.Open();
+
             string query = "select * from products where p_name = '"+txtProductName.Text+"'";
-            SqlCommand command = new SqlCommand(query,sql);
-            readdata = command.ExecuteReader();
-            while(readdata.Read()){
-                txtProductId.Text = readdata["product_id"].ToString();
-                
+            using (SqlCommand command = new SqlCommand(query, sql))
+            {
+                readdata = command.ExecuteReader();
+                while (readdata.Read())
+                {
+                    txtProductId.Text = readdata["product_id"].ToString();
+                    txtAvailableProductQuantity.Text = readdata["p_Quantity"].ToString();
+                    if (txtAvailableProductQuantity.Text == "0")
+                    {
+                        lblInstock.Text = "Out Of Stock";
+                        txtSalesProduct.Text = "";
+                    }
+                    else
+                    {
+                        lblInstock.Text = "In-Stock";
+                        txtSalesProduct.Text = txtProductName.Text;
+                    }
+
+
+                }
             }
             sql.Close();
         }
         
         #region Product Search Method
+        /// <summary>
+        /// Product Search method 
+        /// this method searches the products
+        /// </summary>
         public void ProductSearch()
         {
 
             txtProductName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtProductName.AutoCompleteSource = AutoCompleteSource.CustomSource;
             AutoCompleteStringCollection col = new AutoCompleteStringCollection();
-            
+
 
             sql.Open();
             string query = "select p_name from products ";
-            SqlCommand command = new SqlCommand(query,sql);
-            readdata = command.ExecuteReader();
+            try
+            {
 
-            while(readdata.Read()){
-                string result = readdata.GetString(0).ToString();
-                col.Add(result);
-               //txtProductId.Text = readdata["product_id"].ToString();
+                using (SqlCommand command = new SqlCommand(query, sql))
+                {
+                    readdata = command.ExecuteReader();
+
+                    while (readdata.Read())
+                    {
+                        string result = readdata.GetString(0).ToString();
+                        col.Add(result);
+                        //txtProductId.Text = readdata["product_id"].ToString();
+                    }
+                    txtProductName.AutoCompleteCustomSource = col;
+                }
+                sql.Close();
             }
-            txtProductName.AutoCompleteCustomSource = col;
-            sql.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         #endregion

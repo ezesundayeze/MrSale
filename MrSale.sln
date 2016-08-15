@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrSale", "MrSale\MrSale.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pbar.cs", "pbar.cs\pbar.cs.csproj", "{EB4364C8-73F3-485B-9662-D8682AE119EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorManagement", "ColorManagement.cs\ColorManagement.csproj", "{31555FDF-D665-48D6-AAF0-432755E245C8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customers", "Customers\Customers.csproj", "{D276CB74-461E-4DA5-B157-604E5E81C07B}"
 EndProject
 Global
@@ -23,10 +21,6 @@ Global
 		{EB4364C8-73F3-485B-9662-D8682AE119EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB4364C8-73F3-485B-9662-D8682AE119EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB4364C8-73F3-485B-9662-D8682AE119EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31555FDF-D665-48D6-AAF0-432755E245C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31555FDF-D665-48D6-AAF0-432755E245C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31555FDF-D665-48D6-AAF0-432755E245C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31555FDF-D665-48D6-AAF0-432755E245C8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D276CB74-461E-4DA5-B157-604E5E81C07B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D276CB74-461E-4DA5-B157-604E5E81C07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D276CB74-461E-4DA5-B157-604E5E81C07B}.Release|Any CPU.ActiveCfg = Release|Any CPU

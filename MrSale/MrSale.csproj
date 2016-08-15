@@ -125,10 +125,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ColorManagement.cs\ColorManagement.csproj">
-      <Project>{31555fdf-d665-48d6-aaf0-432755e245c8}</Project>
-      <Name>ColorManagement</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Customers\Customers.csproj">
       <Project>{d276cb74-461e-4da5-b157-604e5e81c07b}</Project>
       <Name>Customers</Name>
