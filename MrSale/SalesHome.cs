@@ -29,6 +29,7 @@ namespace MrSale
             InitializeComponent();
             searchCustomerDetails();
             SearchCustomer();
+            ProductSearch();
             label24_exchange();
             Autocomplete();
             this.WindowState = FormWindowState.Maximized;
@@ -62,7 +63,7 @@ namespace MrSale
             label3.BackColor = Color.Transparent;
 
             // datagrid
-            datagridShoppingCart.BackgroundColor = Color.DeepPink;
+            datagridShoppingCart.BackgroundColor = Color.FromArgb(29,61,86);
             datagridCustomerDetails.BackgroundColor = Color.FromArgb(10, 5, 20);
             datagridCustomerDetails.ForeColor = Color.DarkBlue;
             dataGridView3.BackgroundColor = Color.FromArgb(10, 5, 20);
@@ -74,7 +75,7 @@ namespace MrSale
             //Gb_searchCustomer.BackColor = cblue;
 
             //panels for customer details -- in customer management section
-            //panel_customerdetails.BackColor = Color.FromArgb(3, 109, 191);
+            panel_customerdetails.BackColor = Color.FromArgb(29, 61, 86);
             //panel_for_label_bulk_sms.BackColor = Color.FromArgb(3, 109, 191);
             //panel_for_bulksms_control.BackColor = Color.FromArgb(3, 109, 191);
 
@@ -222,10 +223,42 @@ namespace MrSale
  
         }
 
+        private void ProductName_TextChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView();
+            sql.Open();
+            string query = "select * from products where p_name = '"+txtProductName.Text+"'";
+            SqlCommand command = new SqlCommand(query,sql);
+            readdata = command.ExecuteReader();
+            while(readdata.Read()){
+                txtProductId.Text = readdata["product_id"].ToString();
+                
+            }
+            sql.Close();
+        }
+        
+        #region Product Search Method
+        public void ProductSearch()
+        {
 
-        
-        #region Customer Search Method
-        
+            txtProductName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtProductName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+            
+
+            sql.Open();
+            string query = "select p_name from products ";
+            SqlCommand command = new SqlCommand(query,sql);
+            readdata = command.ExecuteReader();
+
+            while(readdata.Read()){
+                string result = readdata.GetString(0).ToString();
+                col.Add(result);
+               //txtProductId.Text = readdata["product_id"].ToString();
+            }
+            txtProductName.AutoCompleteCustomSource = col;
+            sql.Close();
+        }
 
         #endregion
         #region Closing Form Event Handler
@@ -402,6 +435,8 @@ namespace MrSale
             }
 
         }
+
+       
 
         
 

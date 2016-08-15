@@ -83,13 +83,13 @@
             this.label18 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
+            this.lblInstock = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtAvailableProductQuantity = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtProductId = new System.Windows.Forms.TextBox();
+            this.txtProductName = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -173,7 +173,7 @@
             // 
             // panel_for_bulksms_control
             // 
-            this.panel_for_bulksms_control.BackColor = System.Drawing.Color.DarkCyan;
+            this.panel_for_bulksms_control.BackColor = System.Drawing.Color.GhostWhite;
             this.panel_for_bulksms_control.Controls.Add(this.button1);
             this.panel_for_bulksms_control.Controls.Add(this.btn_import);
             this.panel_for_bulksms_control.Controls.Add(this.panel_for_label_bulk_sms);
@@ -294,7 +294,7 @@
             // 
             // panel_customerdetails
             // 
-            this.panel_customerdetails.BackColor = System.Drawing.Color.DarkCyan;
+            this.panel_customerdetails.BackColor = System.Drawing.Color.GhostWhite;
             this.panel_customerdetails.Controls.Add(this.gbCTransaction);
             this.panel_customerdetails.Controls.Add(this.gbCDeails);
             this.panel_customerdetails.Controls.Add(this.button9);
@@ -626,13 +626,13 @@
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.textBox13);
             this.groupBox3.Controls.Add(this.textBox12);
-            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Controls.Add(this.lblInstock);
             this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.textBox11);
+            this.groupBox3.Controls.Add(this.txtAvailableProductQuantity);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.textBox8);
-            this.groupBox3.Controls.Add(this.textBox9);
+            this.groupBox3.Controls.Add(this.txtProductId);
+            this.groupBox3.Controls.Add(this.txtProductName);
             this.groupBox3.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(839, 17);
@@ -708,17 +708,17 @@
             this.textBox12.TabIndex = 3;
             this.textBox12.Text = "0";
             // 
-            // label21
+            // lblInstock
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label21.Location = new System.Drawing.Point(276, 110);
-            this.label21.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(83, 17);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "IN-STOCK";
+            this.lblInstock.AutoSize = true;
+            this.lblInstock.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblInstock.Location = new System.Drawing.Point(276, 110);
+            this.lblInstock.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblInstock.Name = "lblInstock";
+            this.lblInstock.Size = new System.Drawing.Size(83, 17);
+            this.lblInstock.TabIndex = 0;
+            this.lblInstock.Text = "IN-STOCK";
             // 
             // label20
             // 
@@ -731,16 +731,16 @@
             this.label20.TabIndex = 0;
             this.label20.Text = "PRODUCT ID :";
             // 
-            // textBox11
+            // txtAvailableProductQuantity
             // 
-            this.textBox11.Enabled = false;
-            this.textBox11.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(279, 135);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(164, 25);
-            this.textBox11.TabIndex = 3;
-            this.textBox11.Text = "0";
+            this.txtAvailableProductQuantity.Enabled = false;
+            this.txtAvailableProductQuantity.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAvailableProductQuantity.Location = new System.Drawing.Point(279, 135);
+            this.txtAvailableProductQuantity.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtAvailableProductQuantity.Name = "txtAvailableProductQuantity";
+            this.txtAvailableProductQuantity.Size = new System.Drawing.Size(164, 25);
+            this.txtAvailableProductQuantity.TabIndex = 3;
+            this.txtAvailableProductQuantity.Text = "0";
             // 
             // label17
             // 
@@ -764,26 +764,26 @@
             this.label16.TabIndex = 0;
             this.label16.Text = "PRODUCT  NAME :";
             // 
-            // textBox8
+            // txtProductId
             // 
-            this.textBox8.Enabled = false;
-            this.textBox8.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(279, 64);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(164, 25);
-            this.textBox8.TabIndex = 3;
-            this.textBox8.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtProductId.Enabled = false;
+            this.txtProductId.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductId.Location = new System.Drawing.Point(279, 64);
+            this.txtProductId.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtProductId.Name = "txtProductId";
+            this.txtProductId.Size = new System.Drawing.Size(164, 25);
+            this.txtProductId.TabIndex = 3;
+            this.txtProductId.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox9
+            // txtProductName
             // 
-            this.textBox9.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(279, 30);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(164, 25);
-            this.textBox9.TabIndex = 3;
-            this.textBox9.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtProductName.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductName.Location = new System.Drawing.Point(279, 30);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(164, 25);
+            this.txtProductName.TabIndex = 3;
+            this.txtProductName.TextChanged += new System.EventHandler(this.ProductName_TextChanged);
             // 
             // groupBox2
             // 
@@ -1234,10 +1234,10 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label lblInstock;
+        private System.Windows.Forms.TextBox txtAvailableProductQuantity;
+        private System.Windows.Forms.TextBox txtProductId;
+        private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
