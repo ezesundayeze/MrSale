@@ -240,31 +240,37 @@ namespace MrSale
         private void ProductName_TextChanged(object sender, EventArgs e)
         {
             DataView dv = new DataView();
-            sql.Open();
 
-            string query = "select * from products where p_name = '"+txtProductName.Text+"'";
-            using (SqlCommand command = new SqlCommand(query, sql))
+            
+            try
             {
-                readdata = command.ExecuteReader();
-                while (readdata.Read())
+                sql.Open();
+                string query = "select * from products where p_name = '" + txtProductName.Text + "'";
+                using (SqlCommand command = new SqlCommand(query, sql))
                 {
-                    txtProductId.Text = readdata["product_id"].ToString();
-                    txtAvailableProductQuantity.Text = readdata["p_Quantity"].ToString();
-                    if (txtAvailableProductQuantity.Text == "0")
+                    readdata = command.ExecuteReader();
+                    while (readdata.Read())
                     {
-                        lblInstock.Text = "Out Of Stock";
-                        txtSalesProduct.Text = "";
-                    }
-                    else
-                    {
-                        lblInstock.Text = "In-Stock";
-                        txtSalesProduct.Text = txtProductName.Text;
-                    }
+                        txtProductId.Text = readdata["product_id"].ToString();
+                        txtAvailableProductQuantity.Text = readdata["p_Quantity"].ToString();
+                        if (txtAvailableProductQuantity.Text == "0")
+                        {
+                            lblInstock.Text = "Out Of Stock";
+                            txtSalesProduct.Text = "";
+                        }
+                        else
+                        {
+                            lblInstock.Text = "In-Stock";
+                            txtSalesProduct.Text = txtProductName.Text;
+                        }
 
 
+                    }
                 }
+                sql.Close();
+            }catch (Exception ex){
+                MessageBox.Show(ex.Message);
             }
-            sql.Close();
         }
         
         #region Product Search Method
@@ -424,30 +430,36 @@ namespace MrSale
             div.RowFilter = string.Format("cs_Name LIKE '%{0}%'",txtCustomerName);
             
             //still working on this line
-             sql.Open();
-            string query = "select cs_PhoneNumber,cs_Id from customers where cs_Name='"+txtCustomerName.Text+"'";
-
-            using (SqlCommand command = new SqlCommand(query, sql))
+            try
             {
-                readdata = command.ExecuteReader();
-                if (readdata.HasRows)
+                sql.Open();
+                string query = "select cs_PhoneNumber,cs_Id from customers where cs_Name='" + txtCustomerName.Text + "'";
+
+                using (SqlCommand command = new SqlCommand(query, sql))
                 {
-                    while (readdata.Read())
+                    readdata = command.ExecuteReader();
+                    if (readdata.HasRows)
                     {
-                        txtCustomerPhoneNumber.Text = readdata["cs_PhoneNumber"].ToString();
-                        try
+                        while (readdata.Read())
                         {
-                            txtCustomerID.Text = readdata["cs_Id"].ToString();
-                        }catch (IndexOutOfRangeException ex){
-                            MessageBox.Show(ex.Message);
+                            txtCustomerPhoneNumber.Text = readdata["cs_PhoneNumber"].ToString();
+                            try
+                            {
+                                txtCustomerID.Text = readdata["cs_Id"].ToString();
+                            }
+                            catch (IndexOutOfRangeException ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+
                         }
 
                     }
-
                 }
+                sql.Close();
+            }catch (Exception ex){
+                MessageBox.Show(ex.Message);
             }
-            sql.Close();
-	     
         }
         public void SearchCustomer()
         {
