@@ -856,6 +856,7 @@
             this.btn_add.Size = new System.Drawing.Size(110, 32);
             this.btn_add.TabIndex = 4;
             this.btn_add.UseVisualStyleBackColor = false;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // txtAddionalCharge
             // 

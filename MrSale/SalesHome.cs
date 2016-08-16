@@ -12,6 +12,7 @@ using Customers;
 using System.Data.SqlClient;
 using FixerSharp;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace MrSale
 {
@@ -491,6 +492,29 @@ namespace MrSale
             sql.Close();
             }
 
+        }
+        /// <summary>
+        /// Button event Handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            
+
+            if(string.IsNullOrWhiteSpace(txtQuantity.Text) || txtSalesProduct.Text=="" || txtQuantity.Text=="0")
+            {
+                MessageBox.Show("No Field Should Be Empty","Info");
+            }
+            else
+            {
+                
+            }
+            
+            if (txtQuantity.Text.Contains(""))
+            {
+                
+            }
         }
 
        
