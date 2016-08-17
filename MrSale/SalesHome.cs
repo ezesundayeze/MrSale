@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +19,13 @@ namespace MrSale
 {
     public partial class SalesHome : Form
     {
+        
         [DllImport("wininet.dll")]
         private extern static bool InternetGetConnectedState(out int description, int ReservedValue);
 
         SqlDataReader readdata;
         SqlConnection sql = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\ezesunday\Documents\mrsalesnew.mdf;Integrated Security=True;Connect Timeout=30");
-        DataTable datatable;
+        DataTable datatable = new DataTable();
         
         public SalesHome()
         {
@@ -65,6 +67,7 @@ namespace MrSale
 
             // datagrid
             datagridShoppingCart.BackgroundColor = Color.FromArgb(29,61,86);
+            datagridShoppingCart.ForeColor = Color.FromArgb(29, 61, 86);
             datagridCustomerDetails.BackgroundColor = Color.FromArgb(10, 5, 20);
             datagridCustomerDetails.ForeColor = Color.DarkBlue;
             dataGridView3.BackgroundColor = Color.FromArgb(10, 5, 20);
@@ -108,10 +111,18 @@ namespace MrSale
 
             // Start Timer
             timer1.Start();
+            this.Paint+=SalesHome_Paint;
+
+           }
+
+            void SalesHome_Paint(object sender, PaintEventArgs e)
+            {
+                Pen mypen = new Pen(Color.Red);
+                e.Graphics.DrawLine(mypen, new Point(10,20), new Point(10,30));
                 
-            
-            
-        }
+            }
+
+
 
         /// <summary>
         ///  Search Customers details
@@ -179,10 +190,10 @@ namespace MrSale
                 {
                     
                         sql.Open();
-                        string query = "select p_price from products where p_name='" + txtSalesProduct.Text + "'";
+                        string query = "SELECT p_price FROM products WHERE p_name='" + txtSalesProduct.Text + "'";
                         using (SqlCommand command = new SqlCommand(query, sql))
                         {
-                            readdata = command.ExecuteReader();
+                                                    readdata = command.ExecuteReader();
                             while (readdata.Read())
                             {
                                 double result = Convert.ToDouble(txtQuantity.Text) * Convert.ToDouble(readdata["p_price"]);
@@ -209,32 +220,18 @@ namespace MrSale
 
         }
 
-       
+        DataTable table = new DataTable();
+
         private void SalesHome_Load(object sender, EventArgs e)
         {
-            sql.Open();
-            try
-            {
-                using (SqlCommand command = new SqlCommand("select cs_Name,cs_PhoneNumber,cs_ID FROM customers", sql))
-                {
-                    SqlDataAdapter sda = new SqlDataAdapter();
-                    datatable = new DataTable();
-                    sda.SelectCommand = command;
-                    sda.Fill(datatable);
-
-                    datagridCustomerDetails.DataSource = datatable;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                sql.Close();
-            }
             
-           
+                    table.Columns.Add("Item ID", typeof(int));
+                    table.Columns.Add("Item Name", typeof(string));
+                    table.Columns.Add("Item Quantity", typeof(int));
+                    table.Columns.Add("Price Per Item", typeof(double));
+                    table.Columns.Add("Total Price", typeof(double));
+
+                    datagridShoppingCart.DataSource = table;
  
         }
 
@@ -254,6 +251,7 @@ namespace MrSale
                     {
                         txtProductId.Text = readdata["product_id"].ToString();
                         txtAvailableProductQuantity.Text = readdata["p_Quantity"].ToString();
+                        item_price.Text =  readdata["p_price"].ToString();
                         if (txtAvailableProductQuantity.Text == "0")
                         {
                             lblInstock.Text = "Out Of Stock";
@@ -347,9 +345,9 @@ namespace MrSale
 
                 try
                 {
-                    //ExchangeRate exrate = Fixer.Rate(Symbols.USD, Symbols.EUR);
-                    //double OneUsdtoEuro = exrate.Convert(1);
-                    //label24.Text = Math.Ceiling(OneUsdtoEuro).ToString();
+                    ExchangeRate exrate = Fixer.Rate(Symbols.USD, Symbols.EUR);
+                    double OneUsdtoEuro = exrate.Convert(1);
+                    label24.Text = Math.Ceiling(OneUsdtoEuro).ToString();
                 }
                 catch (Exception ex)
                 {
@@ -498,9 +496,13 @@ namespace MrSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+
+
+       
         private void btn_add_Click(object sender, EventArgs e)
         {
-            
+           
 
             if(string.IsNullOrWhiteSpace(txtQuantity.Text) || txtSalesProduct.Text=="" || txtQuantity.Text=="0")
             {
@@ -508,13 +510,49 @@ namespace MrSale
             }
             else
             {
-                
+                double TotalPrice = Convert.ToDouble(item_price.Text) * Convert.ToDouble(txtQuantity.Text);
+
+                try
+                {
+                    table.Rows.Add(txtProductId.Text, txtProductName.Text, txtQuantity.Text, item_price.Text, TotalPrice.ToString());
+                    datagridShoppingCart.DataSource = table;
+
+                }catch (Exception ex){
+                    MessageBox.Show(ex.Message);
+                }
+
             }
             
             if (txtQuantity.Text.Contains(""))
             {
                 
             }
+        }
+
+       
+        private void datagridShoppingCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            printDocument1.Print();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            try
+            {
+
+                 PaintEventArgs mypaint = new PaintEventArgs(e.Graphics, new Rectangle(new Point(0, 0), this.Size));
+                // datagridShoppingCart.Font = new Font("Arial", 20);
+                 this.InvokePaint(datagridShoppingCart, mypaint);
+            }catch (Exception ex){
+                MessageBox.Show(ex.Message);
+            }
+           // Brush br = new LinearGradientBrush(new Point(0,0), new Point(0,0), Color.Red,Color.FromArgb(0,250, 120));
+
         }
 
        

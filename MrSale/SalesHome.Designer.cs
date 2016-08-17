@@ -82,7 +82,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.item_price = new System.Windows.Forms.TextBox();
             this.lblInstock = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.txtAvailableProductQuantity = new System.Windows.Forms.TextBox();
@@ -122,6 +122,7 @@
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.tabPage2.SuspendLayout();
             this.panel_for_bulksms_control.SuspendLayout();
             this.panel_for_label_bulk_sms.SuspendLayout();
@@ -153,7 +154,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.tabPage3.Size = new System.Drawing.Size(1354, 711);
+            this.tabPage3.Size = new System.Drawing.Size(1346, 703);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Report";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -166,7 +167,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.tabPage2.Size = new System.Drawing.Size(1354, 711);
+            this.tabPage2.Size = new System.Drawing.Size(1346, 703);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Customer Management";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -182,9 +183,9 @@
             this.panel_for_bulksms_control.Controls.Add(this.Gboxfor_customers_phone_number);
             this.panel_for_bulksms_control.Controls.Add(this.shapeContainer2);
             this.panel_for_bulksms_control.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel_for_bulksms_control.Location = new System.Drawing.Point(654, 4);
+            this.panel_for_bulksms_control.Location = new System.Drawing.Point(646, 4);
             this.panel_for_bulksms_control.Name = "panel_for_bulksms_control";
-            this.panel_for_bulksms_control.Size = new System.Drawing.Size(695, 703);
+            this.panel_for_bulksms_control.Size = new System.Drawing.Size(695, 695);
             this.panel_for_bulksms_control.TabIndex = 1;
             // 
             // button1
@@ -281,7 +282,7 @@
             this.shapeContainer2.Name = "shapeContainer2";
             this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.rectangleShape1});
-            this.shapeContainer2.Size = new System.Drawing.Size(695, 703);
+            this.shapeContainer2.Size = new System.Drawing.Size(695, 695);
             this.shapeContainer2.TabIndex = 3;
             this.shapeContainer2.TabStop = false;
             // 
@@ -304,7 +305,7 @@
             this.panel_customerdetails.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_customerdetails.Location = new System.Drawing.Point(5, 4);
             this.panel_customerdetails.Name = "panel_customerdetails";
-            this.panel_customerdetails.Size = new System.Drawing.Size(661, 703);
+            this.panel_customerdetails.Size = new System.Drawing.Size(661, 695);
             this.panel_customerdetails.TabIndex = 0;
             // 
             // gbCTransaction
@@ -501,7 +502,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.ShowToolTips = true;
-            this.tabControl1.Size = new System.Drawing.Size(1354, 733);
+            this.tabControl1.Size = new System.Drawing.Size(1354, 697);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabControl1_KeyDown);
             // 
@@ -524,19 +525,22 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1346, 703);
+            this.tabPage1.Size = new System.Drawing.Size(1346, 667);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sales";
             this.tabPage1.ToolTipText = "Manage Sales";
             // 
             // datagridShoppingCart
             // 
+            this.datagridShoppingCart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datagridShoppingCart.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.datagridShoppingCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridShoppingCart.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.datagridShoppingCart.Location = new System.Drawing.Point(13, 477);
             this.datagridShoppingCart.Name = "datagridShoppingCart";
             this.datagridShoppingCart.Size = new System.Drawing.Size(1333, 226);
             this.datagridShoppingCart.TabIndex = 4;
+            this.datagridShoppingCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridShoppingCart_CellContentClick);
             // 
             // groupBox4
             // 
@@ -625,7 +629,7 @@
             this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.textBox13);
-            this.groupBox3.Controls.Add(this.textBox12);
+            this.groupBox3.Controls.Add(this.item_price);
             this.groupBox3.Controls.Add(this.lblInstock);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.txtAvailableProductQuantity);
@@ -672,9 +676,10 @@
             this.label19.Location = new System.Drawing.Point(30, 175);
             this.label19.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(202, 17);
+            this.label19.Size = new System.Drawing.Size(104, 17);
             this.label19.TabIndex = 0;
-            this.label19.Text = "AVAILABLE QUANTITY :";
+            this.label19.Text = "ITEM PRICE";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label18
             // 
@@ -697,16 +702,16 @@
             this.textBox13.TabIndex = 3;
             this.textBox13.Text = "0";
             // 
-            // textBox12
+            // item_price
             // 
-            this.textBox12.Enabled = false;
-            this.textBox12.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(279, 176);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(164, 25);
-            this.textBox12.TabIndex = 3;
-            this.textBox12.Text = "0";
+            this.item_price.Enabled = false;
+            this.item_price.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.item_price.Location = new System.Drawing.Point(279, 176);
+            this.item_price.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.item_price.Name = "item_price";
+            this.item_price.Size = new System.Drawing.Size(164, 25);
+            this.item_price.TabIndex = 3;
+            this.item_price.Text = "0";
             // 
             // lblInstock
             // 
@@ -749,9 +754,9 @@
             this.label17.Location = new System.Drawing.Point(30, 110);
             this.label17.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(224, 17);
+            this.label17.Size = new System.Drawing.Size(185, 17);
             this.label17.TabIndex = 0;
-            this.label17.Text = "PRODUCT  AVAILABILITY :";
+            this.label17.Text = "ITEM AVAILABILITY :";
             // 
             // label16
             // 
@@ -845,6 +850,7 @@
             this.button2.Size = new System.Drawing.Size(107, 38);
             this.button2.TabIndex = 4;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_add
             // 
@@ -956,13 +962,13 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(12, 108);
+            this.label12.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(12, 105);
             this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 17);
+            this.label12.Size = new System.Drawing.Size(106, 15);
             this.label12.TabIndex = 0;
-            this.label12.Text = "PRICE:";
+            this.label12.Text = "TOTAL PRICE:";
             // 
             // label11
             // 
@@ -1113,7 +1119,7 @@
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape2,
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(1336, 695);
+            this.shapeContainer1.Size = new System.Drawing.Size(1336, 659);
             this.shapeContainer1.TabIndex = 7;
             this.shapeContainer1.TabStop = false;
             // 
@@ -1144,6 +1150,11 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.OriginAtMargins = true;
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // SalesHome
             // 
@@ -1234,7 +1245,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox item_price;
         private System.Windows.Forms.Label lblInstock;
         private System.Windows.Forms.TextBox txtAvailableProductQuantity;
         private System.Windows.Forms.TextBox txtProductId;
@@ -1286,5 +1297,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label lbl_time;
         private System.Windows.Forms.Timer timer1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
