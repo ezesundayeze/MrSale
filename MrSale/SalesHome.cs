@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Customers;
 using System.Data.SqlClient;
 using FixerSharp;
 using System.Runtime.InteropServices;
@@ -133,8 +132,7 @@ namespace MrSale
         /// </summary>
         public void searchCustomerDetails()
         {
-            Customer customer = new Customer();
-            customer.CustomerName = txtCustomerName.Text;
+            
             txtCustomerName.AutoCompleteMode = AutoCompleteMode.Append;
             txtCustomerName.AutoCompleteSource = AutoCompleteSource.CustomSource;
 

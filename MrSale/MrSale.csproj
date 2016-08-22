@@ -129,10 +129,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Customers\Customers.csproj">
-      <Project>{d276cb74-461e-4da5-b157-604e5e81c07b}</Project>
-      <Name>Customers</Name>
-    </ProjectReference>
     <ProjectReference Include="..\pbar.cs\pbar.cs.csproj">
       <Project>{eb4364c8-73f3-485b-9662-d8682ae119eb}</Project>
       <Name>pbar.cs</Name>
