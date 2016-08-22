@@ -59,6 +59,10 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SharpColor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\SharpColor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -132,6 +136,10 @@
     <ProjectReference Include="..\pbar.cs\pbar.cs.csproj">
       <Project>{eb4364c8-73f3-485b-9662-d8682ae119eb}</Project>
       <Name>pbar.cs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Printing\Printing.csproj">
+      <Project>{4d590c3a-73ed-4812-a8ae-9dce0606f437}</Project>
+      <Name>Printing</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

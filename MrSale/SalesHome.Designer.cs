@@ -68,6 +68,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tx = new System.Windows.Forms.TextBox();
             this.datagridShoppingCart = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -502,13 +503,14 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.ShowToolTips = true;
-            this.tabControl1.Size = new System.Drawing.Size(1354, 697);
+            this.tabControl1.Size = new System.Drawing.Size(1354, 733);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabControl1_KeyDown);
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage1.Controls.Add(this.tx);
             this.tabPage1.Controls.Add(this.datagridShoppingCart);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.lblChange);
@@ -525,10 +527,18 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1346, 667);
+            this.tabPage1.Size = new System.Drawing.Size(1346, 703);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sales";
             this.tabPage1.ToolTipText = "Manage Sales";
+            // 
+            // tx
+            // 
+            this.tx.Location = new System.Drawing.Point(274, 309);
+            this.tx.Multiline = true;
+            this.tx.Name = "tx";
+            this.tx.Size = new System.Drawing.Size(147, 94);
+            this.tx.TabIndex = 8;
             // 
             // datagridShoppingCart
             // 
@@ -1119,7 +1129,7 @@
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape2,
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(1336, 659);
+            this.shapeContainer1.Size = new System.Drawing.Size(1336, 695);
             this.shapeContainer1.TabIndex = 7;
             this.shapeContainer1.TabStop = false;
             // 
@@ -1154,7 +1164,6 @@
             // printDocument1
             // 
             this.printDocument1.OriginAtMargins = true;
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // SalesHome
             // 
@@ -1298,5 +1307,6 @@
         private System.Windows.Forms.Label lbl_time;
         private System.Windows.Forms.Timer timer1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.TextBox tx;
     }
 }

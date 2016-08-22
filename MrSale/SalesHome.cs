@@ -14,19 +14,21 @@ using System.Data.SqlClient;
 using FixerSharp;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
-
+using SharpColor;
+using Printing;
 namespace MrSale
 {
     public partial class SalesHome : Form
     {
-        
+
         [DllImport("wininet.dll")]
         private extern static bool InternetGetConnectedState(out int description, int ReservedValue);
 
         SqlDataReader readdata;
         SqlConnection sql = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\ezesunday\Documents\mrsalesnew.mdf;Integrated Security=True;Connect Timeout=30");
         DataTable datatable = new DataTable();
-        
+        MySharpColor mySahrpColor = new MySharpColor();
+
         public SalesHome()
         {
             InitializeComponent();
@@ -35,10 +37,11 @@ namespace MrSale
             ProductSearch();
             label24_exchange();
             Autocomplete();
+     
             this.WindowState = FormWindowState.Maximized;
             this.Icon = Properties.Resources.Coherence;
             this.Text = "Mr Sale -Sales Home";
-            Color cblue = Color.FromArgb(149, 191,35);
+            Color cblue = Color.FromArgb(149, 191, 35);
             //Color cblue =  Color.FromArgb(66,139,202);
             this.BackColor = cblue;
             //txtCustomerPhoneNumber.Text = "08166307166";
@@ -53,20 +56,20 @@ namespace MrSale
 
             //tab2
             tabPage2.ToolTipText = "Manage Customers";
-           // tabPage2.BackColor = Color.FromArgb(10, 5, 20);
+            // tabPage2.BackColor = Color.FromArgb(10, 5, 20);
             tabPage2.ForeColor = Color.White;
             gbCDeails.ForeColor = Color.White;
             gbCTransaction.ForeColor = Color.White;
-            
+
             //tab3
             tabPage3.ToolTipText = "View Sales Reports";
 
-            lblTotalSalesHeadingtext.BackColor= Color.Transparent;
+            lblTotalSalesHeadingtext.BackColor = Color.Transparent;
             lblSalesTotal.BackColor = Color.Transparent;
             label3.BackColor = Color.Transparent;
 
             // datagrid
-            datagridShoppingCart.BackgroundColor = Color.FromArgb(29,61,86);
+            datagridShoppingCart.BackgroundColor = Color.FromArgb(29, 61, 86);
             datagridShoppingCart.ForeColor = Color.FromArgb(29, 61, 86);
             datagridCustomerDetails.BackgroundColor = Color.FromArgb(10, 5, 20);
             datagridCustomerDetails.ForeColor = Color.DarkBlue;
@@ -90,14 +93,14 @@ namespace MrSale
 
             //bulksms portal
 
-           // panel_for_label_bulk_sms.BackColor = cblue;
+            // panel_for_label_bulk_sms.BackColor = cblue;
 
 
             //bulksms buttons
 
-            btn_import.BackColor = Color.Transparent ;
-            
-            
+            btn_import.BackColor = Color.Transparent;
+
+
             //button cutomisation
 
             btn_add.Image = Properties.Resources.btn_add;
@@ -106,21 +109,21 @@ namespace MrSale
             // rectangleshape
 
             rectangleShape1.BackColor = Color.DeepPink;
-           // rectangleShape
+            // rectangleShape
 
 
             // Start Timer
             timer1.Start();
-            this.Paint+=SalesHome_Paint;
+            this.Paint += SalesHome_Paint;
 
-           }
+        }
 
-            void SalesHome_Paint(object sender, PaintEventArgs e)
-            {
-                Pen mypen = new Pen(Color.Red);
-                e.Graphics.DrawLine(mypen, new Point(10,20), new Point(10,30));
-                
-            }
+        void SalesHome_Paint(object sender, PaintEventArgs e)
+        {
+            Pen mypen = new Pen(Color.Red);
+            e.Graphics.DrawLine(mypen, new Point(10, 20), new Point(10, 30));
+
+        }
 
 
 
@@ -160,13 +163,13 @@ namespace MrSale
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
 
         private void tabControl1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode==Keys.Escape)
+            if (e.KeyCode == Keys.Escape)
             {
-                DialogResult dr = MessageBox.Show("Are You Sure You Want To Exit?","Exit",MessageBoxButtons.YesNo);
+                DialogResult dr = MessageBox.Show("Are You Sure You Want To Exit?", "Exit", MessageBoxButtons.YesNo);
                 if (dr == DialogResult.Yes)
                 {
                     Application.Exit();
@@ -174,11 +177,11 @@ namespace MrSale
                 else
                 {
 
-                    
+
                 }
-                   
-               
-               
+
+
+
             }
         }
 
@@ -188,35 +191,37 @@ namespace MrSale
             {
                 if (txtPrice.Text != "")
                 {
-                    
-                        sql.Open();
-                        string query = "SELECT p_price FROM products WHERE p_name='" + txtSalesProduct.Text + "'";
-                        using (SqlCommand command = new SqlCommand(query, sql))
-                        {
-                                                    readdata = command.ExecuteReader();
-                            while (readdata.Read())
-                            {
-                                double result = Convert.ToDouble(txtQuantity.Text) * Convert.ToDouble(readdata["p_price"]);
-                                txtPrice.Text = result.ToString();
-                            }
 
+                    sql.Open();
+                    string query = "SELECT p_price FROM products WHERE p_name='" + txtSalesProduct.Text + "'";
+                    using (SqlCommand command = new SqlCommand(query, sql))
+                    {
+                        readdata = command.ExecuteReader();
+                        while (readdata.Read())
+                        {
+                            double result = Convert.ToDouble(txtQuantity.Text) * Convert.ToDouble(readdata["p_price"]);
+                            txtPrice.Text = result.ToString();
                         }
-                        sql.Close();
-        
-                }else{
+
+                    }
+                    sql.Close();
+
+                }
+                else
+                {
                     txtPrice.Clear();
                 }
-                
+
 
 
             }
             catch (Exception ex)
             {
-              // MessageBox.Show(ex.Message);
-               
+                // MessageBox.Show(ex.Message);
+
             }
-            
-          
+
+
 
         }
 
@@ -224,22 +229,23 @@ namespace MrSale
 
         private void SalesHome_Load(object sender, EventArgs e)
         {
-            
-                    table.Columns.Add("Item ID", typeof(int));
-                    table.Columns.Add("Item Name", typeof(string));
-                    table.Columns.Add("Item Quantity", typeof(int));
-                    table.Columns.Add("Price Per Item", typeof(double));
-                    table.Columns.Add("Total Price", typeof(double));
 
-                    datagridShoppingCart.DataSource = table;
- 
+            table.Columns.Add("Item ID", typeof(int));
+            table.Columns.Add("Item Name", typeof(string));
+            table.Columns.Add("Item Quantity", typeof(int));
+            table.Columns.Add("Price Per Item", typeof(double));
+            table.Columns.Add("Total Price", typeof(double));
+            table.Columns.Add("Customers Name", typeof(string));
+
+            datagridShoppingCart.DataSource = table;
+
         }
 
         private void ProductName_TextChanged(object sender, EventArgs e)
         {
             DataView dv = new DataView();
 
-            
+
             try
             {
                 sql.Open();
@@ -251,7 +257,7 @@ namespace MrSale
                     {
                         txtProductId.Text = readdata["product_id"].ToString();
                         txtAvailableProductQuantity.Text = readdata["p_Quantity"].ToString();
-                        item_price.Text =  readdata["p_price"].ToString();
+                        item_price.Text = readdata["p_price"].ToString();
                         if (txtAvailableProductQuantity.Text == "0")
                         {
                             lblInstock.Text = "Out Of Stock";
@@ -267,11 +273,13 @@ namespace MrSale
                     }
                 }
                 sql.Close();
-            }catch (Exception ex){
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
         #region Product Search Method
         /// <summary>
         /// Product Search method 
@@ -315,9 +323,9 @@ namespace MrSale
         private void SalesHome_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Console.Beep();
-            
+
             DialogResult dr = MessageBox.Show(@"Do you really want to  Exit?", "Exit", MessageBoxButtons.YesNo);
-            if (dr==DialogResult.Yes)
+            if (dr == DialogResult.Yes)
             {
                 Application.Exit();
             }
@@ -325,13 +333,13 @@ namespace MrSale
             {
                 e.Cancel = true;
             }
-           
+
         }
         #endregion
 
         private void label24_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         #region Foreign Exchange Event Handler
@@ -353,7 +361,8 @@ namespace MrSale
                 {
                     MessageBox.Show(ex.Message);
                 }
-            }else
+            }
+            else
             {
 
                 label24.Text = "No Intert Connectivity";
@@ -397,14 +406,14 @@ namespace MrSale
             {
                 sql.Close();
             }
-            
+
 
         }
 
         private void c_dsearch_TextChanged(object sender, EventArgs e)
         {
             DataView dv = new DataView(datatable);
-            dv.RowFilter = string.Format("cs_Name LIKE '%{0}%'",c_dsearch.Text);
+            dv.RowFilter = string.Format("cs_Name LIKE '%{0}%'", c_dsearch.Text);
             datagridCustomerDetails.DataSource = dv;
         }
 
@@ -412,9 +421,9 @@ namespace MrSale
         {
 
             int desc;
-            if (InternetGetConnectedState(out desc,0)==true)
+            if (InternetGetConnectedState(out desc, 0) == true)
             {
-                MessageBox.Show("Connected"); 
+                MessageBox.Show("Connected");
             }
             else
             {
@@ -426,8 +435,8 @@ namespace MrSale
         private void CustomerNameTextChange(object sender, EventArgs e)
         {
             DataView div = new DataView();
-            div.RowFilter = string.Format("cs_Name LIKE '%{0}%'",txtCustomerName);
-            
+            div.RowFilter = string.Format("cs_Name LIKE '%{0}%'", txtCustomerName);
+
             //still working on this line
             try
             {
@@ -456,7 +465,9 @@ namespace MrSale
                     }
                 }
                 sql.Close();
-            }catch (Exception ex){
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -483,11 +494,15 @@ namespace MrSale
                     txtCustomerName.AutoCompleteCustomSource = complete;
                 }
 
-            }catch (Exception ex){
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
 
-            }finally{
-            sql.Close();
+            }
+            finally
+            {
+                sql.Close();
             }
 
         }
@@ -499,14 +514,14 @@ namespace MrSale
         /// 
 
 
-       
+
         private void btn_add_Click(object sender, EventArgs e)
         {
-           
 
-            if(string.IsNullOrWhiteSpace(txtQuantity.Text) || txtSalesProduct.Text=="" || txtQuantity.Text=="0")
+
+            if (string.IsNullOrWhiteSpace(txtQuantity.Text) || txtSalesProduct.Text == "" || txtQuantity.Text == "0")
             {
-                MessageBox.Show("No Field Should Be Empty","Info");
+                MessageBox.Show("No Field Should Be Empty", "Info");
             }
             else
             {
@@ -514,57 +529,69 @@ namespace MrSale
 
                 try
                 {
-                    table.Rows.Add(txtProductId.Text, txtProductName.Text, txtQuantity.Text, item_price.Text, TotalPrice.ToString());
+                    table.Rows.Add(txtProductId.Text, txtProductName.Text, txtQuantity.Text, item_price.Text, TotalPrice.ToString(), txtCustomerName.Text);
                     datagridShoppingCart.DataSource = table;
 
-                }catch (Exception ex){
+                }
+                catch (Exception ex)
+                {
                     MessageBox.Show(ex.Message);
                 }
 
             }
-            
+
             if (txtQuantity.Text.Contains(""))
             {
-                
+
             }
         }
 
-       
+
         private void datagridShoppingCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            printDocument1.Print();
-        }
+            try{
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            try
-            {
+               
 
-                 PaintEventArgs mypaint = new PaintEventArgs(e.Graphics, new Rectangle(new Point(0, 0), this.Size));
-                // datagridShoppingCart.Font = new Font("Arial", 20);
-                 this.InvokePaint(datagridShoppingCart, mypaint);
+                foreach (DataGridViewRow rw in datagridShoppingCart.Rows)
+                {
+                     var col1 = rw.Cells.ToString();
+                     tx.Text = col1;
+
+                   
+                    
+                 
+                }
+            double TotalPrice = Convert.ToDouble(item_price.Text) * Convert.ToDouble(txtQuantity.Text);
+            Printing.Printing recieptPrint = new Printing.Printing(txtProductId.Text, txtProductName.Text, txtQuantity.Text, item_price.Text, TotalPrice.ToString(), txtCustomerName.Text);
+            recieptPrint.print();
+
+            }catch (InvalidPrinterException ex){
+                MessageBox.Show(ex.Message);
+
             }catch (Exception ex){
+
                 MessageBox.Show(ex.Message);
             }
-           // Brush br = new LinearGradientBrush(new Point(0,0), new Point(0,0), Color.Red,Color.FromArgb(0,250, 120));
 
+           
         }
 
        
 
-        
 
-
-
-
-
-
-
-
+        }
     }
-}
+
+
+
+
+
+
+
+

@@ -17,3 +17,5 @@ C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\obj\Debug
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\obj\Debug\MrSale.csproj.GenerateResource.Cache
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\obj\Debug\MrSale.exe
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\obj\Debug\MrSale.pdb
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\Printing.dll
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\Printing.pdb

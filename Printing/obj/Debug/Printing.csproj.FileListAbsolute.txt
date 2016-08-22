@@ -1,0 +1,5 @@
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\Printing\bin\Debug\Printing.dll
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\Printing\bin\Debug\Printing.pdb
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\Printing\obj\Debug\Printing.csprojResolveAssemblyReference.cache
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\Printing\obj\Debug\Printing.dll
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\Printing\obj\Debug\Printing.pdb

@@ -2,3 +2,4 @@ C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\Customers\bin\De
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\Customers\bin\Debug\Customers.pdb
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\Customers\obj\Debug\Customers.dll
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\Customers\obj\Debug\Customers.pdb
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\Customers\obj\Debug\Customers.csprojResolveAssemblyReference.cache

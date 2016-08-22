@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pbar.cs", "pbar.cs\pbar.cs.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customers", "Customers\Customers.csproj", "{D276CB74-461E-4DA5-B157-604E5E81C07B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Printing", "Printing\Printing.csproj", "{4D590C3A-73ED-4812-A8AE-9DCE0606F437}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{D276CB74-461E-4DA5-B157-604E5E81C07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D276CB74-461E-4DA5-B157-604E5E81C07B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D276CB74-461E-4DA5-B157-604E5E81C07B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D590C3A-73ED-4812-A8AE-9DCE0606F437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D590C3A-73ED-4812-A8AE-9DCE0606F437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D590C3A-73ED-4812-A8AE-9DCE0606F437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D590C3A-73ED-4812-A8AE-9DCE0606F437}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
