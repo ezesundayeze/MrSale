@@ -68,7 +68,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tx = new System.Windows.Forms.TextBox();
             this.datagridShoppingCart = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -510,7 +509,6 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage1.Controls.Add(this.tx);
             this.tabPage1.Controls.Add(this.datagridShoppingCart);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.lblChange);
@@ -531,14 +529,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sales";
             this.tabPage1.ToolTipText = "Manage Sales";
-            // 
-            // tx
-            // 
-            this.tx.Location = new System.Drawing.Point(274, 309);
-            this.tx.Multiline = true;
-            this.tx.Name = "tx";
-            this.tx.Size = new System.Drawing.Size(147, 94);
-            this.tx.TabIndex = 8;
             // 
             // datagridShoppingCart
             // 
@@ -1307,6 +1297,5 @@
         private System.Windows.Forms.Label lbl_time;
         private System.Windows.Forms.Timer timer1;
         private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.TextBox tx;
     }
 }
