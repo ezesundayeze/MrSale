@@ -108,7 +108,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label24 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCustomerID = new System.Windows.Forms.TextBox();
             this.txtCustomerPhoneNumber = new System.Windows.Forms.TextBox();
@@ -123,7 +122,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage2.SuspendLayout();
             this.panel_for_bulksms_control.SuspendLayout();
             this.panel_for_label_bulk_sms.SuspendLayout();
@@ -995,8 +993,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtCustomerID);
             this.groupBox1.Controls.Add(this.txtCustomerPhoneNumber);
@@ -1014,16 +1010,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Customer Info";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(371, 57);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(0, 15);
-            this.label24.TabIndex = 5;
-            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // label4
             // 
@@ -1156,14 +1142,6 @@
             // printDocument1
             // 
             this.printDocument1.OriginAtMargins = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(225, 135);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 83);
-            this.textBox1.TabIndex = 1;
             // 
             // SalesHome
             // 
@@ -1303,10 +1281,8 @@
         private System.Windows.Forms.Button button8;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape1;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label lbl_time;
         private System.Windows.Forms.Timer timer1;
         private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

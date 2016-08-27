@@ -30,7 +30,7 @@ namespace MrSale
         MySharpColor mySahrpColor = new MySharpColor();
 
         // datagrid values intitialisation
-        int totalItemsBought = 0;
+        int totalItemsBought;
         string itemsName = null;
 
         public SalesHome()
@@ -557,7 +557,7 @@ namespace MrSale
 
         //Property to get the total number of items a customer bought
 
-         public   int numberOfItemsBought{
+         public  int numberOfItemsBought{
 
                    get{
                        return totalItemsBought;     
@@ -635,7 +635,7 @@ namespace MrSale
                 }
 
                 // print result to the default printer
-                Printing.Printing recieptPrint = new Printing.Printing(itemId, itemName, itemQuantities, PricePerItem, sum.ToString(), txtCustomerName.Text);
+                Printing.Printing recieptPrint = new Printing.Printing(itemId, itemName, itemQuantities, PricePerItem, sum.ToString(), txtCustomerName.Text, numberOfItemsBought.ToString());
                 recieptPrint.print();
                
             }catch (InvalidPrinterException ex){

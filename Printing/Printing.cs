@@ -22,6 +22,7 @@ namespace Printing
         public string Item_Price;
         public string Total_Price;
         public string CustomerName;
+        protected string number_Items_Bought;
 
         //properties
         #region
@@ -112,7 +113,7 @@ namespace Printing
         /// constructor with parameter
         /// this constructor should initialized all variables
         /// </summary>
-        public Printing(string theProductId,string theProductName,string theProductQuantity,string theItems_Price,string theItem_TotalPrice, string theCustomerName)
+        public Printing(string theProductId,string theProductName,string theProductQuantity,string theItems_Price,string theItem_TotalPrice, string theCustomerName,string theNumberOfItemsBought)
         {
              this.ProductId = "Product ID: "+theProductId;
              this.ProductName = "Product Name: "+theProductName;
@@ -120,6 +121,8 @@ namespace Printing
              this.Item_Price = "Price Per Item: "+theItems_Price;
              this.Total_Price = "Total Price: "+theItem_TotalPrice;
              this.CustomerName = "Customer Name: "+theCustomerName;
+            this.number_Items_Bought= "The Number Of Items Bough" +theNumberOfItemsBought;
+
            
             
 
@@ -167,7 +170,10 @@ namespace Printing
 
             graphics.DrawString("---------------------------", new Font("Times New Romans", 10), new SolidBrush(Color.Black), 50, StartY + offset);
             offset = offset + 20;
-          
+
+            graphics.DrawString(number_Items_Bought, new Font("Times New Romans", 10), new SolidBrush(Color.Black), StartX, StartY + offset);
+            offset = offset + 20;
+
             graphics.DrawString(productName, new Font("Times New Romans", 10), new SolidBrush(Color.Black), StartX, StartY + offset);
             offset = offset + 20;
 
