@@ -23,7 +23,6 @@ namespace Printing
         public string Total_Price;
         public string CustomerName;
 
-
         //properties
         #region
         public string productId
@@ -121,6 +120,8 @@ namespace Printing
              this.Item_Price = "Price Per Item: "+theItems_Price;
              this.Total_Price = "Total Price: "+theItem_TotalPrice;
              this.CustomerName = "Customer Name: "+theCustomerName;
+           
+            
 
 
         }
@@ -161,10 +162,12 @@ namespace Printing
             graphics.DrawImage(bm, 80,StartY+offset-20);
             graphics.DrawString("MR SALES INVOICE ", new Font("Times New Romans", 10), new SolidBrush(Color.Purple),50,StartY+offset);
             offset = offset + 20+10;
+
+            graphics.DrawLine(new Pen(new SolidBrush(Color.Black)), new Point(0, StartY+offset),new Point(0,StartY+offset));
+
             graphics.DrawString("---------------------------", new Font("Times New Romans", 10), new SolidBrush(Color.Black), 50, StartY + offset);
             offset = offset + 20;
-
-
+          
             graphics.DrawString(productName, new Font("Times New Romans", 10), new SolidBrush(Color.Black), StartX, StartY + offset);
             offset = offset + 20;
 
@@ -172,6 +175,9 @@ namespace Printing
             offset = offset + 20;
 
             graphics.DrawString(customerName, new Font("Times New Romans", 10), new SolidBrush(Color.Black), StartX, StartY + offset);
+            offset = offset + 20;
+
+            graphics.DrawString(quantity, new Font("Times New Romans", 10), new SolidBrush(Color.Black), StartX, StartY + offset);
             offset = offset + 20;
 
             graphics.DrawString(item_Price, new Font("Times New Romans", 10), new SolidBrush(Color.Black), StartX, StartY + offset);

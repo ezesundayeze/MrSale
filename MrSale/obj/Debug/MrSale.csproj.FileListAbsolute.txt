@@ -5,7 +5,9 @@ C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\FixerSharp.dll
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\Newtonsoft.Json.dll
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\pbar.cs.dll
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\Printing.dll
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\pbar.cs.pdb
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\Printing.pdb
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\Newtonsoft.Json.xml
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\obj\Debug\MrSale.csprojResolveAssemblyReference.cache
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\obj\Debug\MrSale.SplashScreen.resources
@@ -15,5 +17,3 @@ C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\obj\Debug
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\obj\Debug\MrSale.csproj.GenerateResource.Cache
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\obj\Debug\MrSale.exe
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\obj\Debug\MrSale.pdb
-C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\Printing.dll
-C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSale\MrSale\bin\Debug\Printing.pdb

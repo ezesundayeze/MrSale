@@ -8,6 +8,7 @@ using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using FixerSharp;
@@ -28,13 +29,17 @@ namespace MrSale
         DataTable datatable = new DataTable();
         MySharpColor mySahrpColor = new MySharpColor();
 
+        // datagrid values intitialisation
+        int totalItemsBought = 0;
+        string itemsName = null;
+
         public SalesHome()
         {
             InitializeComponent();
             searchCustomerDetails();
             SearchCustomer();
             ProductSearch();
-            label24_exchange();
+           // label24_exchange();
             Autocomplete();
      
             this.WindowState = FormWindowState.Maximized;
@@ -228,12 +233,12 @@ namespace MrSale
         private void SalesHome_Load(object sender, EventArgs e)
         {
 
-            table.Columns.Add("Item ID", typeof(int));
+            table.Columns.Add("Item ID", typeof(string));
             table.Columns.Add("Item Name", typeof(string));
-            table.Columns.Add("Item Quantity", typeof(int));
-            table.Columns.Add("Price Per Item", typeof(double));
-            table.Columns.Add("Total Price", typeof(double));
-            table.Columns.Add("Customers Name", typeof(string));
+            table.Columns.Add("Item Quantity", typeof(string));
+            table.Columns.Add("Price Per Item", typeof(string));
+            table.Columns.Add("Total Price", typeof(string));
+         
 
             datagridShoppingCart.DataSource = table;
 
@@ -340,33 +345,33 @@ namespace MrSale
 
         }
 
-        #region Foreign Exchange Event Handler
+        //#region Foreign Exchange Event Handler
 
-        public void label24_exchange()
-        {
-            int desc;
-            if (InternetGetConnectedState(out desc, 0) == true)
-            {
+        //public void label24_exchange()
+        //{
+        //    int desc;
+        //    if (InternetGetConnectedState(out desc, 0) == true)
+        //    {
 
 
-                try
-                {
-                    ExchangeRate exrate = Fixer.Rate(Symbols.USD, Symbols.EUR);
-                    double OneUsdtoEuro = exrate.Convert(1);
-                    label24.Text = Math.Ceiling(OneUsdtoEuro).ToString();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-            else
-            {
+        //        try
+        //        {
+        //            ExchangeRate exrate = Fixer.Rate(Symbols.USD, Symbols.EUR);
+        //            double OneUsdtoEuro = exrate.Convert(1);
+        //            label24.Text = Math.Ceiling(OneUsdtoEuro).ToString();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show(ex.Message);
+        //        }
+        //    }
+        //    else
+        //    {
 
-                label24.Text = "No Intert Connectivity";
-            }
-        }
-        #endregion
+        //        label24.Text = "No Intert Connectivity";
+        //    }
+        //}
+        //#endregion
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -417,7 +422,7 @@ namespace MrSale
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Thread.Sleep(5000);
             int desc;
             if (InternetGetConnectedState(out desc, 0) == true)
             {
@@ -527,7 +532,7 @@ namespace MrSale
 
                 try
                 {
-                    table.Rows.Add(txtProductId.Text, txtProductName.Text, txtQuantity.Text, item_price.Text, TotalPrice.ToString(), txtCustomerName.Text);
+                    table.Rows.Add(txtProductId.Text, txtProductName.Text, txtQuantity.Text, item_price.Text, TotalPrice.ToString());
                     datagridShoppingCart.DataSource = table;
 
                 }
@@ -550,25 +555,89 @@ namespace MrSale
 
         }
 
+        //Property to get the total number of items a customer bought
+
+         public   int numberOfItemsBought{
+
+                   get{
+                       return totalItemsBought;     
+                   }
+                   set{
+
+                       for (int i = 0; i <=datagridShoppingCart.Rows.Count-1; i++)
+                       {
+                             totalItemsBought= datagridShoppingCart.Rows.Count;
+                       }
+
+                       totalItemsBought = value;
+                   }
+                }
+
+         public string namesOfItemsBought
+         {
+             get{
+                 return itemsName;
+             }
+             set
+             {
+
+                 for (int i = 0; i <= datagridShoppingCart.Rows.Count - 1; i++)
+                 {
+                    itemsName= datagridShoppingCart.Rows[1].ToString();
+                 }
+
+                 itemsName = value;
+             }
+
+
+         }
+        /// <summary>
+        /// Print Button
+        /// when the print button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            try{
+            try
+            {
 
-               
+                // get total number of items bought
+             
 
-                foreach (DataGridViewRow rw in datagridShoppingCart.Rows)
+                // get names of items
+
+                //Get Total price
+                datagridShoppingCart.AllowUserToAddRows = false;
+
+                int sum = 0;
+                for (int i = 0; i <=datagridShoppingCart.Rows.Count-1; i++)
                 {
-                     var col1 = rw.Cells.ToString();
-                     tx.Text = col1;
-
-                   
+                    sum = sum + int.Parse(datagridShoppingCart.Rows[i].Cells[4].Value.ToString()); 
                     
-                 
                 }
-            double TotalPrice = Convert.ToDouble(item_price.Text) * Convert.ToDouble(txtQuantity.Text);
-            Printing.Printing recieptPrint = new Printing.Printing(txtProductId.Text, txtProductName.Text, txtQuantity.Text, item_price.Text, TotalPrice.ToString(), txtCustomerName.Text);
-            recieptPrint.print();
+                lblSalesTotal.Text= Convert.ToString(sum);
 
+                string itemName = null;
+                string itemId = null;
+                string itemQuantities = null;
+                string PricePerItem = null;
+                string totalprice = null;
+
+                foreach (DataGridViewRow Row in datagridShoppingCart.Rows)
+                {
+
+                     itemName = (Row.Cells["Item Name"].Value).ToString();
+                     itemId = (Row.Cells["Item ID"].Value).ToString();
+                     itemQuantities = (Row.Cells["Item Quantity"].Value).ToString();
+                     PricePerItem = Row.Cells["Price Per Item"].Value.ToString();
+                     totalprice = Row.Cells["Total Price"].Value.ToString();  
+                }
+
+                // print result to the default printer
+                Printing.Printing recieptPrint = new Printing.Printing(itemId, itemName, itemQuantities, PricePerItem, sum.ToString(), txtCustomerName.Text);
+                recieptPrint.print();
+               
             }catch (InvalidPrinterException ex){
                 MessageBox.Show(ex.Message);
 

@@ -49,6 +49,9 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Coherence.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FixerSharp">
       <HintPath>..\packages\FixerSharp.1.0.0.0\lib\net45\FixerSharp.dll</HintPath>
@@ -151,6 +154,7 @@
     <None Include="resource\splash.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Coherence.ico" />
     <Content Include="mrsales.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

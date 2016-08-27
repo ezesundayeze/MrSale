@@ -123,6 +123,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage2.SuspendLayout();
             this.panel_for_bulksms_control.SuspendLayout();
             this.panel_for_label_bulk_sms.SuspendLayout();
@@ -584,9 +585,9 @@
             this.lblSalesTotal.Location = new System.Drawing.Point(145, 327);
             this.lblSalesTotal.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblSalesTotal.Name = "lblSalesTotal";
-            this.lblSalesTotal.Size = new System.Drawing.Size(106, 25);
+            this.lblSalesTotal.Size = new System.Drawing.Size(91, 25);
             this.lblSalesTotal.TabIndex = 0;
-            this.lblSalesTotal.Text = "$100,000";
+            this.lblSalesTotal.Text = "100,000";
             // 
             // label8
             // 
@@ -994,6 +995,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtCustomerID);
@@ -1155,6 +1157,14 @@
             // 
             this.printDocument1.OriginAtMargins = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(225, 135);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(191, 83);
+            this.textBox1.TabIndex = 1;
+            // 
             // SalesHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -1297,5 +1307,6 @@
         private System.Windows.Forms.Label lbl_time;
         private System.Windows.Forms.Timer timer1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
